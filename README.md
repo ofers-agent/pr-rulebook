@@ -43,6 +43,19 @@ pr-rulebook --repo acme/web --format coderabbit --out .coderabbit.yaml
 pr-rulebook --repo acme/web --format json --out review-rules.json
 ```
 
+## Real-repository experiment
+
+We ran v0 end to end on [`astral-sh/ruff`](https://github.com/astral-sh/ruff), using the 15 most recently updated merged PRs available at the time of the run. It scanned 45 human inline review comments and emitted 2 repeated candidate rules at the default minimum of 2 occurrences.
+
+| Candidate rule | Evidence | Confidence | Assessment |
+| --- | ---: | ---: | --- |
+| Include the `async` keyword in a diagnostic annotation when it explains why the diagnostic fires | [2 accepted comments](https://github.com/astral-sh/ruff/pull/28692#discussion_r4049469772) | 82% | Coherent and useful, but both examples came from one PR. |
+| Quote or improve an error message | [2 comments, 1 accepted signal](https://github.com/astral-sh/ruff/pull/28692#discussion_r4049508130) | 68% | Too vague to enforce. Human review should reject or rewrite it. |
+
+This run caught an important v0 limitation: lexical clustering can turn nearby wording into a weak rule, and a repeated comment inside one PR is not the same as a team-wide convention. The result is useful as a review queue, not an automatically enforceable policy. Next, rules should require evidence across distinct PRs and use semantic clustering.
+
+Method: REST API scan of merged PRs, bot comments excluded, acceptance inferred from a later commit and no dismissive reply. Run date: 2026-09-20.
+
 ## What "accepted" means in v0
 
 GitHub's REST API does not expose a universal "review comment caused this change" field. v0 labels a comment accepted when:
