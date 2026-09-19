@@ -1,0 +1,16 @@
+{
+  "name": "pr-rulebook",
+  "version": "0.1.0",
+  "description": "Compile a team's implicit code-review rules from GitHub PR history.",
+  "type": "module",
+  "bin": { "pr-rulebook": "dist/cli.js" },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test dist/*.test.js",
+    "start": "node dist/cli.js"
+  },
+  "engines": { "node": ">=20" },
+  "keywords": ["code-review", "github", "cursor", "claude-code", "coderabbit", "developer-tools"],
+  "license": "MIT",
+  "devDependencies": { "@types/node": "^24.0.0", "typescript": "^5.9.0" }
+}
