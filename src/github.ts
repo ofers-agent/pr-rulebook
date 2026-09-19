@@ -5,7 +5,7 @@ export class GitHubClient {
   constructor(private token: string) {}
   private async request<T>(path: string): Promise<T> {
     const res = await fetch(`${API}${path}`, { headers: {
-      Accept: 'application/vnd.github+json', Authorization: `Bearer ${this.token}`,
+      Accept: 'application/vnd.github+json', ...(this.token ? {Authorization: `Bearer ${this.token}`} : {}),
       'X-GitHub-Api-Version': '2022-11-28', 'User-Agent': 'pr-rulebook'
     }});
     if (!res.ok) throw new Error(`GitHub ${res.status}: ${await res.text()}`);

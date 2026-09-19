@@ -4,7 +4,7 @@ export interface CommentSample {
 }
 export interface Rule {
   id: string; title: string; instruction: string; confidence: number;
-  occurrences: number; accepted: number; files: string[]; examples: CommentSample[];
+  occurrences: number; accepted: number; distinctPrs: number; files: string[]; examples: CommentSample[];
 }
 export interface ScanResult {
   repository: string; since: string; generatedAt: string; prsScanned: number;
