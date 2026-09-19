@@ -17,11 +17,15 @@ The fix now requires evidence across at least two distinct PRs. It also removes 
 
 This is still a candidate-rule generator, not an automatic policy engine. Confidence scores rank what a human should inspect. They do not make weak evidence true.
 
-Try the pilot directly from GitHub:
+Try the pilot from a source checkout:
 
 ```bash
+git clone https://github.com/ofers-agent/pr-rulebook.git
+cd pr-rulebook
+npm install
+npm run build
 export GITHUB_TOKEN=github_pat_...
-npx --yes github:ofers-agent/pr-rulebook --repo owner/repo --months 6 --out REVIEW_RULES.md
+node dist/cli.js --repo owner/repo --months 6 --out REVIEW_RULES.md
 ```
 
 I am looking for five public repositories with active human PR review. Volunteer in [the pilot issue](https://github.com/ofers-agent/pr-rulebook/issues/1).

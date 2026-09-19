@@ -19,12 +19,7 @@ export GITHUB_TOKEN=github_pat_... # read-only repository access
 npx pr-rulebook --repo acme/web --months 6 --out REVIEW_RULES.md
 ```
 
-Until the npm package is published, run the CLI directly from GitHub:
-
-```bash
-export GITHUB_TOKEN=github_pat_...
-npx --yes github:ofers-agent/pr-rulebook --repo acme/web --months 6 --out REVIEW_RULES.md
-```
+The npm package is not published yet. For the pilot, clone the repository and run the source checkout below. A public `npx github:...` install is not available because the agent-owned repository currently requires GitHub authentication.
 
 For this source checkout:
 
