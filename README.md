@@ -1,3 +1,5 @@
+> **This project has moved to [ofershap/pr-rulebook](https://github.com/ofershap/pr-rulebook).** This repository is kept for history - current development, issues, and releases are there.
+
 # PR Rulebook
 
 **Your team already has code-review rules. They are just buried in old PR comments.**
